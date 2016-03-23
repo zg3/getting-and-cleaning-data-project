@@ -3,9 +3,7 @@ This codebook provides an overview of the source data, the transformations appli
 and a summary of the resulting file, tidyHARdata.txt.
 
 ####Source Data Overview
-Human Activity Recognition Using Smartphones Dataset
-- Version 1.0
-
+Human Activity Recognition Using Smartphones Dataset - Version 1.0
 * Data Set Characteristics: Multivariate, Time-Series
 * Number of observations: 10299
 * Number of attributes: 561
@@ -26,31 +24,33 @@ For each record in the dataset the following is provided:
 - Its activity label. 
 - An identifier of the subject who carried out the experiment.
 
+#####Source Data Layout
+The source data is stored in a zip file segmented as follows:
+* Codebook and label/lookup files:
+ * README.txt.
+ * features_info.txt: Shows information about the variables used on the feature vector.
+ * features.txt: List of all 561 features that will be used to map to the measurments/variables in the test and training datasets. 
+ * activity_labels.txt: Links the activity labels (values 1 - 6) with their activity name.
+* Training set:
+ * train/X_train.txt: Training set. (measurements) 
+ * train/y_train.txt: Training labels. (activities)
+ * train/subject_train.txt: Identifies the subject who performed the training activity.
+* Test set:
+ * test/X_test.txt: Test set. (measurements)
+ * test/y_test.txt: Test labels. (activities)
+ * test/subject_test.txt: Identifies the subject who performed the test activity.
+* Raw data files - not used in the analysis
+ * files stored in the Inertial Signals folders.
+
+
 ####Transormations/Work done to 'Clean' the data
 The R script, run_analysis.R performs the following steps to generate the tidy data.
 * Downloads the source (zip) file and unzips it into the working directory.
 * Directory “UCI HAR Dataset” is created with all the files needed to run the script.
-* The files are:
-* Codebook and label/lookup files:
-  * README.txt
-  * features_info.txt: Shows information about the variables used on the feature vector.
-  * features.txt: List of all 561 features that will be used to map to the measurments/variables in the test and training datasets. 
-  * activity_labels.txt: Links the activity labels (values 1 - 6) with their activity name.
-* Training set:
-  * train/X_train.txt: Training set. (measurements) 
-  * train/y_train.txt: Training labels. (activities)
-  * train/subject_train.txt: Identifies the subject who performed the training activity.
-* Test set:
-  * test/X_test.txt: Test set. (measurements)
-  * test/y_test.txt: Test labels. (activities)
-  * test/subject_test.txt: Identifies the subject who performed the test activity.
-* Raw data files - not used in the analysis
-  * files stored in the Inertial Signals folders.
-  
-* Loads the features and activity labels, the test files, and training files
+* Loads the features, activity labels, test files, and training files
 * Merges the training and test sets into one data frame.  To ensure the integrity of the data, the merge is done in such a way that the order of the observations accross the composite files is maintained.
 * Extracts only the variables that have to do with mean or standard deviation.  This is done based on the column names mapped from the features list.  Only those variables with the text 'mean()' or 'std()' in the variable name have been included.
-* Lables the dataset with descriptive names corresponding to the variables measured, and edited to remove hyphens / parentheses.
+* Labels the dataset with descriptive names corresponding to the variables measured, and edited to remove hyphens / parentheses.
 * Uses descriptive activity names to name the activities in the dataset.
 * From the dataset generated with the above steps, it creates a second independent tidy data set (tidyHARdata.txt) with the average of each variable for each activity and subject pair.
 
@@ -69,7 +69,8 @@ There are 30 subjects and 6 activities.  Each subject performed each activity.  
   * values: (1 - 30)
 * activity
   * description: the type of activity performed when the corresponding measurements were taken
-  * data type: factor with 6 levels (1 = WALKING, 2 = WALKING_UPSTAIRS, 3 = WALKING_DOWNSTAIRS, 4 = SITTING, 5 = STANDING, 6 = LAYING)
+  * data type: factor with 6 levels
+  * values: (1 = WALKING, 2 = WALKING_UPSTAIRS, 3 = WALKING_DOWNSTAIRS, 4 = SITTING, 5 = STANDING, 6 = LAYING)
 
 #####Measurements
 Columns 3 to 68 correspond to the following measures.  
