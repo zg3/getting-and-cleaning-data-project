@@ -1,5 +1,5 @@
 ##Getting and Cleaning Data - Course Project
-This repository hosts course-project files submitted for the Getting and Cleaning Data course on Coursera.
+This repository hosts project files submitted for the Getting and Cleaning Data course on Coursera.
 The purpose of the project is to demonstrate the student's ability to collect, work with, and clean a dataset.
 
 ####Source data used for the project:
@@ -19,5 +19,3 @@ The script, run_analysis.R, does the following:
 * Uses descriptive activity names to name the activities in the data set.
 * Labels the data set with descriptive variable names.
 * Genetates a tidy data set with the average of each variable for each activity and subject pair. 
-
-The output file (tidyHARdata.txt) can be read into R with read.table("tidyHARdata.txt", header = TRUE).
