@@ -43,7 +43,7 @@ The source data is stored in a zip file segmented as follows:
  * files stored in the Inertial Signals folders.
 
 
-####Transormations/Work done to 'Clean' the data
+####Transformations/Work done to 'Clean' the data
 The R script, run_analysis.R performs the following steps to generate the tidy data.
 * Downloads the source (zip) file and unzips it into the working directory.
 * Directory “UCI HAR Dataset” is created with all the files needed to run the script.
